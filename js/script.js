@@ -1,16 +1,15 @@
 $(document).ready(function(){
   
     $(window).on('scroll',function(){
-        console.log(window.pageYOffset);
-        var sticky = $('.demo').offset().top;
-        console.log(sticky);
-        if(window.pageYOffset > sticky){
-            $('.demo').addClass("sticky");
+        console.log($(this).scrollTop());
+        if($(window).scrollTop()>50){
+            
+            $('.demo').addClass("fixed");
         }
-        else  
-        {
-            $('.demo').removeClass("sticky");
+        else{
+            $('.demo').removeClass("fixed");
         }
+       
     })
     $('.nav2 ul li').on('click',function(){
         $('.nav2 ul li').removeClass('active');
@@ -36,7 +35,7 @@ $(document).ready(function(){
     $('#owlLogo').owlCarousel({
         loop:true,
         margin:10,
-        // nav:true,
+         //nav:true,
         autoplay:true,
         autoplayTimeout:3000,
         autoplayHoverPause:true,

@@ -37,50 +37,126 @@
   flex: 0 0 50%;
   max-width: 50%; }
 
-.sticky {
+.fixed {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background: white; }
 
-header {
-  background: transparent;
+header .demo1 {
   position: absolute;
-  top: 0; }
-  header .nav1 {
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-    header .nav1 .ul1 li {
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  header .demo1 .nav1 {
+    padding: 15px 0; }
+    header .demo1 .nav1 .ul1 li {
+      margin-right: 20px;
+      font-size: 13px; }
+      header .demo1 .nav1 .ul1 li span {
+        color: white; }
+        header .demo1 .nav1 .ul1 li span i {
+          color: #00ABC9;
+          margin-right: 5px; }
+    header .demo1 .nav1 .ul2 li {
       margin-right: 20px; }
-      header .nav1 .ul1 li span i {
-        color: #00ABC9;
-        margin-right: 5px; }
-    header .nav1 .ul2 li {
-      margin-right: 20px; }
-  header .nav2 {
+      header .demo1 .nav1 .ul2 li a {
+        font-size: 14px;
+        color: white;
+        transition: all 1s; }
+        header .demo1 .nav1 .ul2 li a:hover {
+          color: #00ABC9;
+          font-size: 13px; }
+
+header .demo {
+  position: absolute;
+  width: 100%;
+  top: 10%;
+  left: 0; }
+  header .demo .nav2 {
     padding: 20px 0; }
-    header .nav2 .img {
+    header .demo .nav2 .img {
       height: 50px;
       width: 170px; }
-      header .nav2 .img img {
+      header .demo .nav2 .img img {
         width: 100%;
         height: 100%; }
-    header .nav2 ul li a {
+    header .demo .nav2 ul li a {
+      font-size: 13px;
       padding: 10px 20px;
-      text-transform: uppercase; }
-    header .nav2 ul li a:hover {
+      text-transform: uppercase;
+      color: white; }
+    header .demo .nav2 ul li a:hover {
       text-decoration: overline;
       color: #00ABC9; }
-
-.active a {
-  color: #00ABC9;
-  text-decoration: overline; }
+    header .demo .nav2 ul .active a {
+      color: #00ABC9;
+      text-decoration: overline; }
 
 .slider {
   background: url("../img/slide1.jpg");
-  height: 550px;
+  height: 100vh;
   background-position: center;
   background-size: cover; }
+  .slider .caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center; }
+    .slider .caption h1 {
+      font-size: 50px;
+      font-weight: 400;
+      display: block;
+      opacity: 0;
+      animation: animateH1 2s forwards; }
+    .slider .caption p {
+      opacity: 0;
+      font-size: 20px;
+      font-weight: 400;
+      animation: animateP 2s forwards 1s; }
+    .slider .caption button {
+      opacity: 0;
+      background: #00ABC9;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      animation: animateBtn 2s forwards 2s; }
+      .slider .caption button a {
+        font-size: 15px;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 400; }
+      .slider .caption button:hover {
+        background: #353535; }
+
+@keyframes animateH1 {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0px); } }
+
+@keyframes animateP {
+  0% {
+    opacity: 0;
+    transform: scale(0.3); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes animateBtn {
+  0% {
+    opacity: 0;
+    filter: blur(5px); }
+  100% {
+    opacity: 1;
+    filter: blur(0); } }
 
 .features {
   background: #F7F7F7;
@@ -153,7 +229,7 @@ header {
   .createWork .general .text button {
     margin-top: 20px;
     background: #00ABC9;
-    padding: 10px 20px;
+    padding: 15px 20px;
     font-size: 0.928rem;
     letter-spacing: 1px;
     font-family: 'Montserrat', sans-serif;
@@ -164,8 +240,9 @@ header {
     display: inline-block;
     border-radius: 3px;
     text-align: center;
-    border: 2px solid #00ABC9;
     cursor: pointer; }
+    .createWork .general .text button:hover {
+      background: #353535; }
 
 .createWork .general .img {
   height: 100%; }
@@ -244,7 +321,10 @@ header {
               background: transparent;
               border-radius: 50%;
               color: white;
-              margin: 10px 0; }
+              margin: 10px 0;
+              overflow: hidden; }
+              .createTeam .team .teanHover .text .social ul li a:hover i {
+                animation: animationI 0.5s forwards; }
           .createTeam .team .teanHover .text .social ul .social-facebook a {
             background-color: #5d82d1; }
           .createTeam .team .teanHover .text .social ul .social-twitter a {
@@ -256,6 +336,15 @@ header {
     .createTeam .team .teanHover:hover .social {
       opacity: 1;
       left: 40px; }
+
+@keyframes animationI {
+  0% {
+    transform: translateY(-100px); }
+  60% {
+    transform: translateY(100px); }
+  100% {
+    transform: translateY(0px);
+    color: white; } }
 
 .bgScroll {
   background: url("../img/bgScroll.jpg");
@@ -478,6 +567,9 @@ header {
           border: 2px solid #00ABC9;
           cursor: pointer;
           text-decoration: none; }
+          .features2 .content .card .price-top .price-button .cs-button:hover {
+            border: none;
+            background: #353535; }
       .features2 .content .card .price-content {
         width: inherit;
         margin: 0;
@@ -537,6 +629,8 @@ header {
             color: #353535;
             line-height: 28px;
             text-decoration: none; }
+          .blog .contentBlog .card .blog-detail .entry-title:hover a {
+            color: #00ABC9; }
         .blog .contentBlog .card .blog-detail .entry-meta {
           margin-bottom: 10px; }
           .blog .contentBlog .card .blog-detail .entry-meta ul {
@@ -577,6 +671,8 @@ header {
               color: #00ABC9;
               padding: 0;
               font-weight: 600; }
+            .blog .contentBlog .card .blog-detail .entry-share .entry-button:hover a {
+              color: gray; }
 
 .contact {
   padding: 120px 0; }
@@ -623,10 +719,19 @@ header {
           border: 0;
           background: transparent;
           color: #333;
-          overflow: hidden;
-          -webkit-transition: all .3s ease;
-          -o-transition: all .3s ease;
-          transition: all .3s ease; }
+          overflow: hidden; }
+          .contact .right .social-icons ul li a:hover i {
+            animation: animationI 0.5s forwards; }
+      .contact .right .social-icons ul .social-rss a:hover {
+        background: orange; }
+      .contact .right .social-icons ul .social-facebook a:hover {
+        background: #0056b3; }
+      .contact .right .social-icons ul .social-twitter a:hover {
+        background: #00ABC9; }
+      .contact .right .social-icons ul .social-vimeo a:hover {
+        background: #00ABC9; }
+      .contact .right .social-icons ul .social-youtube a:hover {
+        background: #ef4e41; }
   .contact .left {
     width: 50%; }
     .contact .left form {
@@ -634,20 +739,26 @@ header {
       .contact .left form input {
         width: 100%;
         height: 40px;
-        margin-bottom: 20px; }
-      .contact .left form input::placeholder {
-        padding-left: 20px; }
+        margin-bottom: 20px;
+        padding-left: 20px;
+        border-radius: 5px; }
       .contact .left form textarea {
-        width: 100%;
-        margin-bottom: 20px; }
-      .contact .left form textarea::placeholder {
+        width: 104%;
+        margin-bottom: 20px;
+        border-radius: 5px;
         padding-left: 20px;
         padding-top: 20px; }
       .contact .left form input:focus {
-        outline: none; }
+        border: none;
+        outline: none;
+        background: #f6f7f8; }
+      .contact .left form textarea:focus {
+        border: none;
+        outline: none;
+        background: #f6f7f8; }
       .contact .left form button {
         background: #00ABC9;
-        padding: 10px 20px;
+        padding: 15px 20px;
         font-size: 0.928rem;
         letter-spacing: 1px;
         font-family: 'Montserrat', sans-serif;
@@ -658,74 +769,10 @@ header {
         display: inline-block;
         border-radius: 3px;
         text-align: center;
-        border: 2px solid #00ABC9;
         cursor: pointer; }
-
-footer .on {
-  padding: 30px 0;
-  background: #00ABC9; }
-  footer .on .actionbox-text {
-    padding-right: 230px;
-    color: #fff; }
-  footer .on .actionbox-res-cs-button a {
-    background: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px; }
-  footer .on .actionbox-res-cs-button a:hover {
-    background: white;
-    color: #00ABC9; }
-
-footer .under {
-  padding-top: 50px;
-  background: black; }
-  footer .under .logo {
-    margin-bottom: 15px; }
-    footer .under .logo .img {
-      width: 200px;
-      height: 40px; }
-      footer .under .logo .img img {
-        width: 100%;
-        height: 100%; }
-    footer .under .logo ul li {
-      text-align: center;
-      border-right: 1px solid white;
-      padding: 0 15px; }
-      footer .under .logo ul li a {
-        color: white; }
-    footer .under .logo ul li:last-child {
-      border: none; }
-  footer .under .footer-copyright {
-    padding: 20px 0;
-    border-top: 1px solid #666; }
-    footer .under .footer-copyright .text p {
-      margin-top: 15px;
-      color: #898989; }
-      footer .under .footer-copyright .text p a {
-        color: #007bff;
-        text-decoration: none;
-        background-color: transparent; }
-    footer .under .footer-copyright ul li {
-      display: inline-block;
-      list-style: none;
-      margin: 0 8px 8px 0; }
-      footer .under .footer-copyright ul li a {
-        display: block;
-        height: 32px;
-        width: 32px;
-        line-height: 32px;
-        font-size: 1.142rem;
-        text-align: center;
-        margin: 0;
-        border-radius: 4px;
-        border: 0;
-        background: transparent;
-        color: #333;
-        overflow: hidden;
-        -webkit-transition: all .3s ease;
-        -o-transition: all .3s ease;
-        transition: all .3s ease; }
+        .contact .left form button:hover {
+          background: #353535;
+          border: none; }
 
 .logoCarousel {
   background: #F7F7F7;
@@ -830,3 +877,76 @@ footer .under {
       text-transform: none; }
     .comment .contentComment .client .bg-theme .author-info {
       color: #fff; }
+
+footer .on {
+  padding: 30px 0;
+  background: #00ABC9; }
+  footer .on .actionbox-text {
+    padding-right: 230px;
+    color: #fff; }
+  footer .on .actionbox-res-cs-button a {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px; }
+  footer .on .actionbox-res-cs-button a:hover {
+    background: white;
+    color: #00ABC9; }
+
+footer .under {
+  padding-top: 50px;
+  background: black; }
+  footer .under .logo {
+    margin-bottom: 15px; }
+    footer .under .logo .img {
+      width: 200px;
+      height: 40px; }
+      footer .under .logo .img img {
+        width: 100%;
+        height: 100%; }
+    footer .under .logo ul li {
+      text-align: center;
+      border-right: 1px solid white;
+      padding: 0 15px; }
+      footer .under .logo ul li a {
+        color: white; }
+    footer .under .logo ul li:last-child {
+      border: none; }
+  footer .under .footer-copyright {
+    padding: 20px 0;
+    border-top: 1px solid #666; }
+    footer .under .footer-copyright .text p {
+      margin-top: 15px;
+      color: #898989; }
+      footer .under .footer-copyright .text p a {
+        color: #007bff;
+        text-decoration: none;
+        background-color: transparent; }
+    footer .under .footer-copyright ul li {
+      display: inline-block;
+      list-style: none;
+      margin: 0 8px 8px 0; }
+      footer .under .footer-copyright ul li a {
+        display: block;
+        height: 32px;
+        width: 32px;
+        line-height: 32px;
+        font-size: 1.142rem;
+        text-align: center;
+        margin: 0;
+        border-radius: 4px;
+        border: 0;
+        background: transparent;
+        color: #898989;
+        overflow: hidden; }
+        footer .under .footer-copyright ul li a:hover i {
+          animation: animationI 0.5s forwards; }
+    footer .under .footer-copyright ul .social-facebook a:hover {
+      background: #0056b3; }
+    footer .under .footer-copyright ul .social-twitter a:hover {
+      background: #00ABC9; }
+    footer .under .footer-copyright ul .social-dribbble a:hover {
+      background: #f7659c; }
+    footer .under .footer-copyright ul .social-twitter a:hover {
+      background: #00ABC9; }
